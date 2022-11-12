@@ -19,7 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
-    path('', include('example_app.urls')),
+    path('', include('pemira_ff.urls')),
 ]
-
-# TODO: Implement Routings Here
