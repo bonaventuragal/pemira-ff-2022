@@ -6,14 +6,12 @@ class Panitia(User):
     class Meta:
         proxy: True
 
-class Token(User):
+class Token(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     tokenField = models.CharField(max_length=5)
     npm = models.CharField(max_length=10, null=True)
     used = models.BooleanField()
     name = models.CharField(max_length=100, null=True)
-
-    class Meta:
-        proxy: True
 
 class CType(models.IntegerChoices):
     BPM = 1
