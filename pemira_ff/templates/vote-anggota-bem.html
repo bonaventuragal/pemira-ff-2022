@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="flex flex-col items-center h-[100%] overflow-auto gap-2 p-8">
-  <p class="text-3xl">Vote Calon Anggota Independen BPM</p>
+  <p class="text-3xl">Vote Calon Anggota Independen BEM</p>
   <div class="grid grid-cols-2 justify-center grow">
     {% for c in calon %}
       <div class="flex flex-col items-center justify-between rounded-lg bg-blue-400 m-8 p-8">
@@ -19,7 +19,7 @@
           <p><span class="block font-semibold">Visi</span>{{ c.visi }}</p>
           <p><span class="block font-semibold">Misi</span>{{ c.misi }}</p>
         </div>
-        <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBpm({{ c.cNo }})">VOTE</button>
+        <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBem({{ c.cNo }})">VOTE</button>
       </div>
     {% endfor %}
     <div class="flex flex-col items-center justify-between rounded-lg bg-blue-400 m-8 p-8">
@@ -29,7 +29,7 @@
         <p><span class="block font-semibold">Visi</span>Kosong</p>
         <p><span class="block font-semibold">Misi</span>Kosong</p>
       </div>
-      <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBpm(0)">VOTE</button>
+      <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBem(0)">VOTE</button>
     </div>
   </div>
 </div>

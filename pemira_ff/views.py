@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from .models import Token, Candidate, CType
+from .models import Token, Candidate, CType, VoteResult
 import datetime
 
 # Create your views here.
@@ -68,3 +68,39 @@ def vote_anggota_bem(req):
         "calon": calon_bem
     }
     return render(req, "vote-anggota-bem.html", context)
+
+# @login_required(login_url = "/")
+@csrf_exempt
+def vote_anggota_bpm_post(req):
+    if req.method == "POST":
+        idBpm = int(req.POST.get("idBpm"))
+
+        if idBpm == 0:
+            voteObj, created = VoteResult.objects.get_or_create(candidate__isnull=True, cType=CType.BPM)
+        else:
+            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBpm, cType=CType.BPM))
+
+        voteObj.count = voteObj.count + 1
+        voteObj.save()
+
+        return HttpResponse()
+
+    return HttpResponseBadRequest()
+
+# @login_required(login_url = "/")
+@csrf_exempt
+def vote_anggota_bem_post(req):
+    if req.method == "POST":
+        idBem = int(req.POST.get("idBem"))
+
+        if idBem == 0:
+            voteObj, created = VoteResult.objects.get_or_create(candidate__isnull=True, cType=CType.BEM)
+        else:
+            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBem, cType=CType.BEM))
+
+        voteObj.count = voteObj.count + 1
+        voteObj.save()
+
+        return HttpResponse()
+
+    return HttpResponseBadRequest()

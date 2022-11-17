@@ -27,8 +27,5 @@ class Candidate(models.Model):
 
 class VoteResult(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE, null=True)
-    count = models.IntegerField()
-
-    @property
-    def cType(self):
-        return self.candidate.cType
+    count = models.IntegerField(default=0)
+    cType = models.IntegerField(choices=CType.choices, default=1)

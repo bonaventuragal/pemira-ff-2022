@@ -9,4 +9,6 @@ urlpatterns = [
     path('profil/anggota-bem/', profil_anggota_bem, name='profil_anggota_bem'),
     path('vote/anggota-bpm/', vote_anggota_bpm, name='vote_anggota_bpm'),
     path('vote/anggota-bem/', vote_anggota_bem, name='vote_anggota_bem'),
+    path('vote/anggota-bpm/post/', vote_anggota_bpm_post, name='vote_anggota_bpm_post'),
+    path('vote/anggota-bem/post/', vote_anggota_bem_post, name='vote_anggota_bem_post'),
 ]
