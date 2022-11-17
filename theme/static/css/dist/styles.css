@@ -900,12 +900,12 @@ select {
   border-radius: 0.25rem;
 }
 
-.border {
-  border-width: 1px;
-}
-
 .border-2 {
   border-width: 2px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-black {
@@ -923,21 +923,12 @@ select {
   background-color: rgb(134 239 172 / var(--tw-bg-opacity));
 }
 
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
-
-.bg-slate-400\/50 {
-  background-color: rgb(148 163 184 / 0.5);
-}
-
-.bg-slate-400\/70 {
-  background-color: rgb(148 163 184 / 0.7);
-}
-
 .bg-slate-800\/70 {
   background-color: rgb(30 41 59 / 0.7);
+}
+
+.bg-orange-400\/70 {
+  background-color: rgb(251 146 60 / 0.7);
 }
 
 .bg-orange-400 {
@@ -945,8 +936,9 @@ select {
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
 }
 
-.bg-orange-400\/70 {
-  background-color: rgb(251 146 60 / 0.7);
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
 .p-4 {
@@ -989,11 +981,6 @@ select {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 
 .font-semibold {

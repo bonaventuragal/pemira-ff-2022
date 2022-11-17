@@ -1,18 +1,32 @@
-const showModal = (name) => {
+const showSuccessModal = (name) => {
     $("#login-nama").html(name);
-    $("#modal").removeClass("hidden");
+    $("#success-modal").removeClass("hidden");
 }
 
-const hideModal = () => {
-    $("#modal").addClass("hidden");
+const hideSuccessModal = () => {
+    $("#success-modal").addClass("hidden");
+}
+
+const showFailModal = () => {
+    $("#fail-modal").removeClass("hidden");
+}
+
+const hideFailModal = () => {
+    $("#fail-modal").addClass("hidden");
 }
 
 const login = () => {
     $.post("/login/", {
         token: $("#token-input").val(),
         csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()
-    }, (data, status) => {
-        showModal(data.nama);
+    },
+    (data, status) => {
+        showSuccessModal(data.nama);
+    })
+    .fail(() => {
+        showFailModal();
+    }).always(() => {
+        $("#token-input").val("");
     });
 }
 
@@ -30,4 +44,8 @@ $(document).ready(() => {
     $("#logout-btn").click(() => {
         logout();
     });
+
+    $("#close-fail-modal").click(() => {
+        hideFailModal();
+    })
 });
