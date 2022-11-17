@@ -8,8 +8,8 @@
 
 {% block content %}
 <div class="flex flex-col items-center h-[100%] overflow-auto gap-2 p-8">
-  <p class="text-3xl">Profil Calon Anggota Independen BPM</p>
-  <div class="grid grid-cols-{{ calon.count }} grow w-full">
+  <p class="text-3xl">Profil Calon Anggota Independen BEM</p>
+  <div class="flex justify-center grow w-full">
     {% for c in calon %}
       <div class="flex flex-col justify-center items-center rounded-lg bg-blue-400 m-8 gap-2 p-8">
         <img class="rounded-full overflow-clip w-40 h-40" src={{ c.photoPath }} />

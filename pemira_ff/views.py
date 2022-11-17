@@ -44,3 +44,11 @@ def profil_anggota_bpm(req):
         "calon": calon_bpm
     }
     return render(req, "profil-anggota-bpm.html", context)
+
+# @login_required(login_url = "/home")
+def profil_anggota_bem(req):
+    calon_bpm = Candidate.objects.filter(cType=CType.BEM)
+    context = {
+        "calon": calon_bpm
+    }
+    return render(req, "profil-anggota-bem.html", context)
