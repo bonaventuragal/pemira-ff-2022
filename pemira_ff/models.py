@@ -26,7 +26,7 @@ class Candidate(models.Model):
     cNo = models.IntegerField(default=0)
 
 class VoteResult(models.Model):
-    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
+    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE, null=True)
     count = models.IntegerField()
 
     @property
