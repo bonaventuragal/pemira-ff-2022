@@ -104,3 +104,6 @@ def vote_anggota_bem_post(req):
         return HttpResponse()
 
     return HttpResponseBadRequest()
+
+def done(req):
+    return render(req, "done.html")
