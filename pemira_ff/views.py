@@ -1,10 +1,9 @@
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, JsonResponse
+from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Token
+from .models import Token, Candidate, CType
 import datetime
 
 # Create your views here.
@@ -12,7 +11,7 @@ def home(req):
     context = {
         "today": datetime.date.today().strftime("%d %B %Y")
     }
-    return render(req, 'home.html', context)
+    return render(req, "home.html", context)
 
 def login_user(req):
     if req.method == "POST":
@@ -32,8 +31,16 @@ def login_user(req):
 
     return HttpResponseBadRequest()
 
-@login_required(login_url="/home")
+@login_required(login_url = "/home")
 @csrf_exempt
 def logout_user(req):
     logout(req)
     return HttpResponse()
+
+# @login_required(login_url = "/home")
+def profil_anggota_bpm(req):
+    calon_bpm = Candidate.objects.filter(cType=CType.BPM)
+    context = {
+        "calon": calon_bpm
+    }
+    return render(req, "profil-anggota-bpm.html", context)
