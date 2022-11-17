@@ -37,7 +37,7 @@ def logout_user(req):
     logout(req)
     return HttpResponse()
 
-@login_required(login_url = "/")
+# @login_required(login_url = "/")
 def profil_anggota_bpm(req):
     calon_bpm = Candidate.objects.filter(cType=CType.BPM)
     context = {
@@ -45,10 +45,26 @@ def profil_anggota_bpm(req):
     }
     return render(req, "profil-anggota-bpm.html", context)
 
-@login_required(login_url = "/")
+# @login_required(login_url = "/")
 def profil_anggota_bem(req):
-    calon_bpm = Candidate.objects.filter(cType=CType.BEM)
+    calon_bem = Candidate.objects.filter(cType=CType.BEM)
+    context = {
+        "calon": calon_bem
+    }
+    return render(req, "profil-anggota-bem.html", context)
+
+# @login_required(login_url = "/")
+def vote_anggota_bpm(req):
+    calon_bpm = Candidate.objects.filter(cType=CType.BPM)
     context = {
         "calon": calon_bpm
     }
-    return render(req, "profil-anggota-bem.html", context)
+    return render(req, "vote-anggota-bpm.html", context)
+
+# @login_required(login_url = "/")
+def vote_anggota_bem(req):
+    calon_bem = Candidate.objects.filter(cType=CType.BEM)
+    context = {
+        "calon": calon_bem
+    }
+    return render(req, "vote-anggota-bem.html", context)
