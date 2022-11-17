@@ -23,6 +23,7 @@ class Candidate(models.Model):
     visi = models.TextField()
     misi = models.TextField()
     cType = models.IntegerField(choices=CType.choices)
+    cNo = models.IntegerField(default=0)
 
 class VoteResult(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
