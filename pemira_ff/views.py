@@ -31,13 +31,13 @@ def login_user(req):
 
     return HttpResponseBadRequest()
 
-@login_required(login_url = "/home")
+@login_required(login_url = "/")
 @csrf_exempt
 def logout_user(req):
     logout(req)
     return HttpResponse()
 
-# @login_required(login_url = "/home")
+@login_required(login_url = "/")
 def profil_anggota_bpm(req):
     calon_bpm = Candidate.objects.filter(cType=CType.BPM)
     context = {
@@ -45,7 +45,7 @@ def profil_anggota_bpm(req):
     }
     return render(req, "profil-anggota-bpm.html", context)
 
-# @login_required(login_url = "/home")
+@login_required(login_url = "/")
 def profil_anggota_bem(req):
     calon_bpm = Candidate.objects.filter(cType=CType.BEM)
     context = {
