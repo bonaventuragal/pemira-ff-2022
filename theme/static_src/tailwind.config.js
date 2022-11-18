@@ -42,7 +42,21 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            color: {
+                'green-sheen': '#73C1AB',
+                'arylide-yellow': '#EAD770',
+                'mandarin': '#F37D4C',
+                'liberty': '#435FAF',
+                'vivid-tangerine': '#F79588',
+                'orange-red': '#F46521',
+                'platinum': '#EAEAEA'
+            },
+
+            fontFamily: {
+                'poppins': ['Poppins'],
+            }
+        },
     },
     plugins: [
         /**
