@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block meta %}
+<title>Pemira FF 2022</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="flex flex-col items-center h-full overflow-auto gap-2 p-8">
+  <p class="text-3xl">Profil Calon Anggota Independen BEM</p>
+  <div class="flex justify-center grow">
+    {% for c in calon %}
+      <div class="flex flex-col items-center rounded-lg bg-blue-400 m-8 gap-4 p-8">
+        <img class="rounded-full overflow-clip w-40 h-40" src={{ c.photoPath }} />
+        <p>{{ c.name }}</p>
+        <p><span class="block font-semibold">Visi</span>{{ c.visi }}</p>
+        <p><span class="block font-semibold">Misi</span>{{ c.misi }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="flex flex-row-reverse w-full items-center">
+    <a class="font-bold" href="/vote/anggota-bpm/">NEXT >>></a>
+  </div>
+</div>
+{% endblock content %}

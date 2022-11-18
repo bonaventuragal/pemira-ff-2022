@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block meta %}
+<title>Pemira FF 2022</title>
+<script type="text/javascript" src="{% static 'js/vote.js' %}"></script>
+{% endblock meta %}
+
+{% block content %}
+<div class="flex flex-col items-center h-full overflow-auto gap-2 p-8">
+  <p class="text-3xl">Vote Calon Anggota Independen BEM</p>
+  <div class="grid grid-cols-2 justify-center grow">
+    {% for c in calon %}
+      <div class="flex flex-col items-center justify-between rounded-lg bg-blue-400 m-8 p-8">
+        <div class="flex flex-col items-center gap-4">
+          <img class="rounded-full overflow-clip w-40 h-40" src={{ c.photoPath }} />
+          <p>{{ c.name }}</p>
+          <p><span class="block font-semibold">Visi</span>{{ c.visi }}</p>
+          <p><span class="block font-semibold">Misi</span>{{ c.misi }}</p>
+        </div>
+        <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBem({{ c.cNo }})">VOTE</button>
+      </div>
+    {% endfor %}
+    <div class="flex flex-col items-center justify-between rounded-lg bg-blue-400 m-8 p-8">
+      <div class="flex flex-col items-center gap-4">
+        <img class="rounded-full overflow-clip w-40 h-40" src={% static 'img/anonymous.jpg' %} />
+        <p>Kosong</p>
+        <p><span class="block font-semibold">Visi</span>Kosong</p>
+        <p><span class="block font-semibold">Misi</span>Kosong</p>
+      </div>
+      <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBem(0)">VOTE</button>
+    </div>
+  </div>
+</div>
+
+<div id="confirm-modal" class="hidden w-screen h-screen bg-slate-800/70 absolute top-0 flex flex-col justify-center items-center">
+  <div class="flex flex-col justify-center items-center bg-orange-400/70 p-24 gap-4">
+    <p class="text-3xl">Apakah Anda yakin dengan pilihan Anda?</p>
+    <div class="flex justify-around w-full">
+      <button id="ya-btn" class="text-xl rounded-lg bg-orange-400 border-2 border-black px-4 py-2">Ya</button>
+      <button id="kembali-btn" class="text-xl rounded-lg bg-orange-400 border-2 border-black px-4 py-2" onClick="hideConfirmModal()">Kembali ke pilihan</button>
+    </div>
+  </div>
+</div>
+{% endblock content %}
