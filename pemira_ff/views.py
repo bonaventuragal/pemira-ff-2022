@@ -46,7 +46,7 @@ def profil_anggota_bpm(req):
     return render(req, "profil-anggota-bpm.html", context)
 
 # @login_required(login_url = "/")
-def profil_anggota_bem(req):
+def profil_ketua_bem(req):
     calon_bem = Candidate.objects.filter(cType=CType.BEM)
     context = {
         "calon": calon_bem
@@ -62,7 +62,7 @@ def vote_anggota_bpm(req):
     return render(req, "vote-anggota-bpm.html", context)
 
 # @login_required(login_url = "/")
-def vote_anggota_bem(req):
+def vote_ketua_bem(req):
     calon_bem = Candidate.objects.filter(cType=CType.BEM)
     context = {
         "calon": calon_bem
@@ -89,7 +89,7 @@ def vote_anggota_bpm_post(req):
 
 # @login_required(login_url = "/")
 @csrf_exempt
-def vote_anggota_bem_post(req):
+def vote_ketua_bem_post(req):
     if req.method == "POST":
         idBem = int(req.POST.get("idBem"))
 

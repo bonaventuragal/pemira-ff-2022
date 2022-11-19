@@ -43,18 +43,28 @@ module.exports = {
     ],
     theme: {
         extend: {
-            color: {
+            fontFamily: {
+                'poppins': ['Poppins'],
+                'simply-rounded': ['Simply Rounded'],
+                'lora': ['Lora']
+            },
+            
+            colors: {
                 'green-sheen': '#73C1AB',
                 'arylide-yellow': '#EAD770',
                 'mandarin': '#F37D4C',
-                'liberty': '#435FAF',
+                'liberty': '#4E5FAF',
                 'vivid-tangerine': '#F79588',
                 'orange-red': '#F46521',
-                'platinum': '#EAEAEA'
+                'platinum': '#EAEAEA',
+                'cultured': '#F6f6f6',
+                'crayola': '#4190C9',
+                'purple-x': '#8F45E2',
+                'russian-violet': '#150C34'
             },
 
-            fontFamily: {
-                'poppins': ['Poppins'],
+            backgroundImage: {
+                'hero': "url('/static/img/bg.png')",
             }
         },
     },

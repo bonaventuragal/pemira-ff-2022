@@ -153,3 +153,8 @@ INTERNAL_IPS = [
 ]
 
 NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+
+import mimetypes
+
+mimetypes.add_type("image/svg+xml", ".svg", True)
+mimetypes.add_type("image/svg+xml", ".svgz", True)

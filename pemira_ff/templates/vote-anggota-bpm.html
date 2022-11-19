@@ -5,41 +5,60 @@
 {% block meta %}
 <title>Pemira FF 2022</title>
 <script type="text/javascript" src="{% static 'js/vote.js' %}"></script>
+<style>
+  .outline-text {
+    text-shadow:
+     -2px -2px 0 #150C34,  
+      1px -1px 0 #150C34,
+      -1px 1px 0 #150C34,
+      1px 1px 0 #150C34;
+  }
+</style>
 {% endblock meta %}
 
 {% block content %}
-<div class="flex flex-col items-center h-full overflow-auto gap-2 p-8">
-  <p class="text-3xl">Vote Calon Anggota Independen BPM</p>
-  <div class="grid grid-cols-2 justify-center grow">
+<div class="flex flex-col items-center h-full font-simply-rounded overflow-auto w-full p-8">
+  <p class="text-6xl text-white outline-text">VOTE SEKARANG!</p>
+  <p class="text-5xl text-white outline-text">Anggota Independen BPM</p>
+  <div class="grid grid-cols-2 w-full">
     {% for c in calon %}
-      <div class="flex flex-col items-center justify-between rounded-lg bg-blue-400 m-8 p-8">
-        <div class="flex flex-col items-center gap-4">
-          <img class="rounded-full overflow-clip w-40 h-40" src={{ c.photoPath }} />
-          <p>{{ c.name }}</p>
-          <p><span class="block font-semibold">Visi</span>{{ c.visi }}</p>
-          <p><span class="block font-semibold">Misi</span>{{ c.misi }}</p>
+      <div class="flex space-x-2 w-full">
+        <div class="relative left-24 pt-10">
+          <span class="bg-liberty ml-4 w-20 h-20 flex justify-center items-center text-5xl text-white outline-text border border-russian-violet rounded-full p-6">{{ c.cNo }}</span>
         </div>
-        <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBpm({{ c.cNo }})">VOTE</button>
+        <div class="flex flex-col w-full items-center gap-y-8 rounded-lg m-8 p-8">
+          <img class="rounded-full border-2 border-russian-violet overflow-clip w-40 h-40" src={{ c.photoPath }} />
+          <div class="text-center w-fit border-2 border-russian-violet px-6 py-1 bg-vivid-tangerine">
+            <p class="text-3xl text-white outline-text">{{ c.name }}</p>
+          </div>
+          <button class="bg-orange-red border-2 border-russian-violet text-white outline-text text-2xl rounded-lg px-8 py-2" onClick="showConfirmModalBpm({{ c.cNo }})">VOTE</button>
+        </div>
       </div>
     {% endfor %}
-    <div class="flex flex-col items-center justify-between rounded-lg bg-blue-400 m-8 p-8">
-      <div class="flex flex-col items-center gap-4">
-        <img class="rounded-full overflow-clip w-40 h-40" src={% static 'img/anonymous.jpg' %} />
-        <p>Kosong</p>
-        <p><span class="block font-semibold">Visi</span>Kosong</p>
-        <p><span class="block font-semibold">Misi</span>Kosong</p>
+    <div class="flex space-x-2 w-full">
+      <div class="relative left-24 pt-10">
+        <span class="bg-liberty ml-4 w-20 h-20 flex justify-center items-center text-5xl text-white outline-text border border-russian-violet rounded-full p-6">2</span>
       </div>
-      <button class="bg-orange-400 rounded-lg p-4" onClick="showConfirmModalBpm(0)">VOTE</button>
+      <div class="flex flex-col w-full items-center gap-y-8 rounded-lg m-8 p-8">
+        <img class="rounded-full border-2 border-russian-violet overflow-clip w-40 h-40" src={% static 'img/anonymous.jpg' %} />
+        <div class="text-center w-fit border-2 border-russian-violet px-6 py-1 bg-vivid-tangerine">
+          <p class="text-3xl text-transparent">Kosong</p>
+        </div>
+        <button class="bg-orange-red border-2 border-russian-violet text-white outline-text text-2xl rounded-lg px-8 py-2" onClick="showConfirmModalBpm(0)">VOTE</button>
+      </div>
     </div>
   </div>
 </div>
 
 <div id="confirm-modal" class="hidden w-screen h-screen bg-slate-800/70 absolute top-0 flex flex-col justify-center items-center">
-  <div class="flex flex-col justify-center items-center bg-orange-400/70 p-24 gap-4">
-    <p class="text-3xl">Apakah Anda yakin dengan pilihan Anda?</p>
-    <div class="flex justify-around w-full">
-      <button id="ya-btn" class="text-xl rounded-lg bg-orange-400 border-2 border-black px-4 py-2">Ya</button>
-      <button id="kembali-btn" class="text-xl rounded-lg bg-orange-400 border-2 border-black px-4 py-2" onClick="hideConfirmModal()">Kembali ke pilihan</button>
+  <div class="flex font-simply-rounded flex-col justify-center items-center bg-mandarin/70 p-20 gap-y-8">
+    <p class="text-5xl text-white outline-text">Apakah Anda yakin dengan pilihan Anda?</p>
+    <div class="flex space-x-12 w-fit">
+      <button id="ya-btn" class="text-3xl text-white outline-text rounded-lg bg-orange-red border-2 border-black px-10 py-2">Ya</button>
+      <button id="kembali-btn" class="text-xl text-white outline-text rounded-lg bg-orange-red border-2 border-black px-4 py-2" onClick="hideConfirmModal()">
+        <p>Kembali</p>
+        <p>ke pilihan</p>
+      </button>
     </div>
   </div>
 </div>
