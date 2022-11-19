@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'pemira_ff',
     'tailwind',
     'theme',
-    'django_browser_reload'
+    'django_browser_reload',
+    'utils'
 ]
 
 MIDDLEWARE = [

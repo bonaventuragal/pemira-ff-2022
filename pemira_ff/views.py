@@ -24,7 +24,7 @@ def login_user(req):
         login(req, tokenObj.user)
 
         response = {
-            "nama": tokenObj.user.username
+            "nama": tokenObj.name
         }
 
         return JsonResponse(response)
