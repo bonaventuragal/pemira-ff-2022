@@ -107,3 +107,15 @@ def vote_anggota_bem_post(req):
 
 def done(req):
     return render(req, "done.html")
+
+# @login_required(login_url = "/panitia")
+def hasil(req):
+    return render(req, "hasil.html")
+    
+# @login_required(login_url = "/panitia")
+def hasil_anggota_bpm(req):
+    return render(req, "hasil-bpm.html")
+
+# @login_required(login_url = "/panitia")
+def hasil_ketua_bem(req):
+    return render(req, "hasil-bem.html")
