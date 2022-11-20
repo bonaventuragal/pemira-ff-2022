@@ -41,8 +41,8 @@ $(document).ready(() => {
         login();
     });
 
-    $("#logout-btn").click(() => {
-        logout();
+    $("#next-btn").click(() => {
+        
     });
 
     $("#close-fail-modal").click(() => {

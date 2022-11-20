@@ -19,6 +19,8 @@ def login_user(req):
         token = req.POST.get("token")
         try:
             tokenObj = Token.objects.get(tokenField=token)
+            if tokenObj.used:
+                raise Exception()
         except:
             return HttpResponseBadRequest()
 
@@ -35,10 +37,16 @@ def login_user(req):
 @login_required(login_url = "/")
 @csrf_exempt
 def logout_user(req):
+    tokenObj = Token.objects.get(user=req.user)
+
     logout(req)
+
+    tokenObj.used = True
+    tokenObj.save()
+
     return HttpResponse()
 
-# @login_required(login_url = "/")
+@login_required(login_url = "/")
 def profil_anggota_bpm(req):
     calon_bpm = Candidate.objects.filter(cType=CType.BPM)
     context = {
@@ -46,7 +54,7 @@ def profil_anggota_bpm(req):
     }
     return render(req, "profil-anggota-bpm.html", context)
 
-# @login_required(login_url = "/")
+@login_required(login_url = "/")
 def profil_ketua_bem(req):
     calon_bem = Candidate.objects.filter(cType=CType.BEM)
     context = {
@@ -54,7 +62,7 @@ def profil_ketua_bem(req):
     }
     return render(req, "profil-anggota-bem.html", context)
 
-# @login_required(login_url = "/")
+@login_required(login_url = "/")
 def vote_anggota_bpm(req):
     calon_bpm = Candidate.objects.filter(cType=CType.BPM)
     context = {
@@ -62,7 +70,7 @@ def vote_anggota_bpm(req):
     }
     return render(req, "vote-anggota-bpm.html", context)
 
-# @login_required(login_url = "/")
+@login_required(login_url = "/")
 def vote_ketua_bem(req):
     calon_bem = Candidate.objects.filter(cType=CType.BEM)
     context = {
@@ -70,7 +78,7 @@ def vote_ketua_bem(req):
     }
     return render(req, "vote-anggota-bem.html", context)
 
-# @login_required(login_url = "/")
+@login_required(login_url = "/")
 @csrf_exempt
 def vote_anggota_bpm_post(req):
     if req.method == "POST":
@@ -88,7 +96,7 @@ def vote_anggota_bpm_post(req):
 
     return HttpResponseBadRequest()
 
-# @login_required(login_url = "/")
+@login_required(login_url = "/")
 @csrf_exempt
 def vote_ketua_bem_post(req):
     if req.method == "POST":
@@ -100,7 +108,6 @@ def vote_ketua_bem_post(req):
             voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBem, cType=CType.BEM), cType=CType.BEM)
 
         voteObj.count = voteObj.count + 1
-        print(voteObj.cType)
         voteObj.save()
 
         return HttpResponse()
@@ -110,10 +117,9 @@ def vote_ketua_bem_post(req):
 def done(req):
     return render(req, "done.html")
 
-# @login_required(login_url = "/panitia")
 def hasil(req):
     return render(req, "hasil.html")
-    
+
 # @login_required(login_url = "/panitia")
 def hasil_anggota_bpm(req):
     return render(req, "hasil-bpm.html")
@@ -155,3 +161,25 @@ def panitia(req):
     logout(req)
 
     return render(req, "panitia.html")
+
+def panitia_login(req):
+    if req.method == "POST":
+        username = req.POST.get("username")
+        password = req.POST.get("password")
+        try:
+            panitiaObj = Panitia.objects.get(username=username, password=password)
+        except:
+            return HttpResponseBadRequest()
+
+        login(req, panitiaObj)
+
+        # response = {
+        #     "nama": tokenObj.name
+        # }
+
+        return JsonResponse({})
+
+    return HttpResponseBadRequest()
+
+def panitia_dashboard(req):
+    return render(req, "dashboard-panitia.html")
