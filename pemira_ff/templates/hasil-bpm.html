@@ -5,6 +5,12 @@
 {% block meta %}
 <title>Pemira FF 2022</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="{% static 'js/hasil.js' %}"></script>
+<script type="text/javascript">
+  $(document).ready(() => {
+    chart('bpm');
+  });
+</script>
 {% endblock meta %}
 
 {% block content %}
@@ -23,38 +29,4 @@
     <p>Calon Anggota Independen BPM FF UI 2022</p>
   </div>
 </div>
-
-<script type="text/javascript">
-  const ctx = document.getElementById('chart');
-
-  Chart.defaults.font.size = 16;
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Calon 1', 'Calon 2'],
-      datasets: [{
-        label: '# of Votes',
-        data: [10, 17],
-        borderWidth: 1,
-        backgroundColor: '#FC7723',
-        borderColor: '#000'
-      }]
-    },
-    options: {
-      indexAxis: 'y',
-      barPercentage: 0.3,
-      responsive: true,
-      maintainAspectRatio: false,
-      scales:{
-        x: {
-          title: {
-            display: true,
-            text: 'Jumlah Pemilih',
-          }
-        }
-      }
-    }
-  });
-</script>
 {% endblock content %}

@@ -117,5 +117,31 @@ def hasil_anggota_bpm(req):
     return render(req, "hasil-bpm.html")
 
 # @login_required(login_url = "/panitia")
+def hasil_anggota_bpm_get(req):
+    votes = VoteResult.objects.filter(cType=CType.BPM)
+
+    vote_cnt = {}
+    for vote in votes:
+        if not vote.candidate:
+            vote_cnt["Kosong"] = vote.count
+        else:
+            vote_cnt[vote.candidate.name] = vote.count
+
+    return JsonResponse(vote_cnt)
+
+# @login_required(login_url = "/panitia")
 def hasil_ketua_bem(req):
     return render(req, "hasil-bem.html")
+
+# @login_required(login_url = "/panitia")
+def hasil_ketua_bem_get(req):
+    votes = VoteResult.objects.filter(cType=CType.BEM)
+
+    vote_cnt = {}
+    for vote in votes:
+        if not vote.candidate:
+            vote_cnt["Kosong"] = vote.count
+        else:
+            vote_cnt[vote.candidate.name] = vote.count
+
+    return JsonResponse(vote_cnt)
