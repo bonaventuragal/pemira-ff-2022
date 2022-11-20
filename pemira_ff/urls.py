@@ -12,4 +12,8 @@ urlpatterns = [
     path('vote/anggota-bpm/post/', vote_anggota_bpm_post, name='vote_anggota_bpm_post'),
     path('vote/anggota-bem/post/', vote_anggota_bem_post, name='vote_anggota_bem_post'),
     path('done/', done, name='done'),
+    path('hasil/', hasil, name='hasil'),
+    path('hasil/anggota-bpm', hasil_anggota_bpm, name='hasil_anggota_bpm'),
+    path('hasil/ketua-bem', hasil_ketua_bem, name='hasil_ketua_bem'),
+    path('panitia/', panitia, name='panitia'),
 ]
