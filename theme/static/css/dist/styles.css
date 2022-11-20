@@ -793,10 +793,6 @@ select {
   margin: 2rem;
 }
 
-.m-40 {
-  margin: 10rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -850,36 +846,28 @@ select {
   height: 100vh;
 }
 
-.h-\[100\%\] {
+.h-full {
   height: 100%;
-}
-
-.h-80 {
-  height: 20rem;
 }
 
 .h-40 {
   height: 10rem;
 }
 
-.h-full {
-  height: 100%;
+.w-screen {
+  width: 100vw;
 }
 
 .w-40 {
   width: 10rem;
 }
 
-.w-screen {
-  width: 100vw;
-}
-
 .w-full {
   width: 100%;
 }
 
-.w-80 {
-  width: 20rem;
+.w-\[50\%\] {
+  width: 50%;
 }
 
 .grow {
@@ -932,6 +920,10 @@ select {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .overflow-auto {
@@ -1006,6 +998,15 @@ select {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
+.bg-yellow-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 240 138 / var(--tw-bg-opacity));
+}
+
+.p-20 {
+  padding: 5rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -1016,10 +1017,6 @@ select {
 
 .p-8 {
   padding: 2rem;
-}
-
-.p-20 {
-  padding: 5rem;
 }
 
 .px-4 {
