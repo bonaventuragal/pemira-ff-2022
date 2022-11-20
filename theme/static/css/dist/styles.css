@@ -938,6 +938,10 @@ select {
   min-height: 400px;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .w-\[90\%\] {
   width: 90%;
 }
@@ -948,10 +952,6 @@ select {
 
 .w-\[50\%\] {
   width: 50%;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .w-\[70\%\] {
@@ -981,6 +981,10 @@ select {
 
 .w-\[24rem\] {
   width: 24rem;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .min-w-\[400px\] {
@@ -1021,6 +1025,10 @@ select {
 
 .items-center {
   align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-center {
@@ -1101,6 +1109,10 @@ select {
   border-radius: 0.5rem;
 }
 
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1144,6 +1156,11 @@ select {
   background-color: rgb(254 240 138 / var(--tw-bg-opacity));
 }
 
+.bg-orange-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 146 60 / var(--tw-bg-opacity));
+}
+
 .bg-arylide-yellow {
   --tw-bg-opacity: 1;
   background-color: rgb(234 215 112 / var(--tw-bg-opacity));
@@ -1175,14 +1192,34 @@ select {
   background-color: rgb(243 125 76 / 0.7);
 }
 
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
-.bg-orange-400 {
+.bg-slate-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(251 146 60 / var(--tw-bg-opacity));
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-hero {
@@ -1205,6 +1242,10 @@ select {
 .object-fill {
   -o-object-fit: fill;
      object-fit: fill;
+}
+
+.p-16 {
+  padding: 4rem;
 }
 
 .p-10 {
@@ -1278,6 +1319,11 @@ select {
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .pt-4 {

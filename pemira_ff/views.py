@@ -120,11 +120,11 @@ def done(req):
 def hasil(req):
     return render(req, "hasil.html")
 
-# @login_required(login_url = "/panitia")
+@login_required(login_url = "/panitia")
 def hasil_anggota_bpm(req):
     return render(req, "hasil-bpm.html")
 
-# @login_required(login_url = "/panitia")
+@login_required(login_url = "/panitia")
 def hasil_anggota_bpm_get(req):
     votes = VoteResult.objects.filter(cType=CType.BPM)
 
@@ -137,11 +137,11 @@ def hasil_anggota_bpm_get(req):
 
     return JsonResponse(vote_cnt)
 
-# @login_required(login_url = "/panitia")
+@login_required(login_url = "/panitia")
 def hasil_ketua_bem(req):
     return render(req, "hasil-bem.html")
 
-# @login_required(login_url = "/panitia")
+@login_required(login_url = "/panitia")
 def hasil_ketua_bem_get(req):
     votes = VoteResult.objects.filter(cType=CType.BEM)
 
@@ -173,13 +173,44 @@ def panitia_login(req):
 
         login(req, panitiaObj)
 
-        # response = {
-        #     "nama": tokenObj.name
-        # }
-
-        return JsonResponse({})
+        return HttpResponse()
 
     return HttpResponseBadRequest()
 
+@login_required(login_url = "/panitia")
 def panitia_dashboard(req):
     return render(req, "dashboard-panitia.html")
+
+def all_token(req):
+    tokens = Token.objects.all()
+
+    tokenList = []
+    for token in tokens:
+        tokenList.append({
+            "id": token.pk,
+            "token": token.tokenField,
+            "npm": token.npm,
+            "name": token.name,
+            "used": token.used
+        })
+
+    res = {"tokenList": tokenList}
+
+    return JsonResponse(res)
+
+@login_required(login_url = "/panitia")
+@csrf_exempt
+def toggle_token(req):
+    if req.method == "POST":
+        try:
+            token = req.POST.get("token")
+            tokenObj = Token.objects.get(tokenField=token)
+        except:
+            return HttpResponseBadRequest()
+
+        tokenObj.used = not tokenObj.used
+        tokenObj.save()
+
+        return HttpResponse()
+
+    return HttpResponseBadRequest()
