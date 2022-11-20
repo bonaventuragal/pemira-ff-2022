@@ -12,7 +12,7 @@ const voteBem = (id) => {
         idBem: id
     },
     () => {
-        window.location.href = "/vote/ketua-bem/";
+        window.location.href = "/done/";
     });
 }
 
