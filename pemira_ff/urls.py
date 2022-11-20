@@ -17,4 +17,9 @@ urlpatterns = [
     path('hasil/anggota-bpm/get/', hasil_anggota_bpm_get, name='hasil_anggota_bpm_get'),
     path('hasil/ketua-bem/', hasil_ketua_bem, name='hasil_ketua_bem'),
     path('hasil/ketua-bem/get/', hasil_ketua_bem_get, name='hasil_ketua_bem_get'),
+    path('panitia/', panitia, name='panitia'),
+    path('panitia/login/', panitia_login, name='panitia_login'),
+    path('panitia/dashboard/', panitia_dashboard, name='panitia_dashboard'),
+    path('token/all/', all_token, name='all_token'),
+    path('token/toggle/', toggle_token, name='toggle_token'),
 ]
