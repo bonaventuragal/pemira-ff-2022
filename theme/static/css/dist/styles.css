@@ -825,6 +825,10 @@ select {
   left: 1.5rem;
 }
 
+.left-4 {
+  left: 1rem;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -985,6 +989,30 @@ select {
 
 .w-\[22rem\] {
   width: 22rem;
+}
+
+.w-\[23rem\] {
+  width: 23rem;
+}
+
+.w-\[24rem\] {
+  width: 24rem;
+}
+
+.w-\[2rem\] {
+  width: 2rem;
+}
+
+.w-\[26rem\] {
+  width: 26rem;
+}
+
+.w-\[28rem\] {
+  width: 28rem;
+}
+
+.w-\[rem\] {
+  width: rem;
 }
 
 .min-w-\[400px\] {

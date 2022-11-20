@@ -78,7 +78,7 @@ def vote_anggota_bpm_post(req):
         if idBpm == 0:
             voteObj, created = VoteResult.objects.get_or_create(candidate__isnull=True, cType=CType.BPM)
         else:
-            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBpm, cType=CType.BPM))
+            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBpm, cType=CType.BPM), cType=CType.BPM)
 
         voteObj.count = voteObj.count + 1
         voteObj.save()
@@ -96,9 +96,10 @@ def vote_ketua_bem_post(req):
         if idBem == 0:
             voteObj, created = VoteResult.objects.get_or_create(candidate__isnull=True, cType=CType.BEM)
         else:
-            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBem, cType=CType.BEM))
+            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBem, cType=CType.BEM), cType=CType.BEM)
 
         voteObj.count = voteObj.count + 1
+        print(voteObj.cType)
         voteObj.save()
 
         return HttpResponse()

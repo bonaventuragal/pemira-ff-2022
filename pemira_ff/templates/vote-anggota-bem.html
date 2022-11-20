@@ -24,10 +24,10 @@
   <div class="grid grid-cols-2 w-full grow">
     {% for c in calon %}
       <div class="flex justify-center space-x-2 w-full">
-        <div class="relative left-2 pt-10">
+        <div class="relative left-4 pt-10">
           <span class="bg-liberty ml-4 w-20 h-20 flex justify-center items-center text-5xl text-white outline-text border border-russian-violet rounded-full p-6">{{ c.cNo }}</span>
         </div>
-        <div class="flex flex-col w-[20rem] items-center gap-y-8 rounded-lg m-8 p-8">
+        <div class="flex flex-col w-[24rem] items-center gap-y-8 rounded-lg m-8 p-8">
           <img class="rounded-full border-2 border-russian-violet overflow-clip w-48 h-48" src={{ c.photoPath }} />
           <div class="text-center w-fit border-2 border-russian-violet px-6 py-1 bg-vivid-tangerine">
             <p class="text-3xl text-white outline-text">{{ c.name }}</p>
@@ -37,13 +37,13 @@
       </div>
     {% endfor %}
     <div class="flex justify-center space-x-2 w-full">
-      <div class="relative left-2 pt-10">
+      <div class="relative left-4 pt-10">
         <span class="bg-liberty ml-4 w-20 h-20 flex justify-center items-center text-5xl text-white outline-text border border-russian-violet rounded-full p-6">2</span>
       </div>
-      <div class="flex flex-col w-[20rem] items-center gap-y-8 rounded-lg m-8 p-8">
+      <div class="flex flex-col w-[24rem] items-center gap-y-8 rounded-lg m-8 p-8">
         <img class="rounded-full border-2 border-russian-violet overflow-clip w-48 h-48" src={% static 'img/anonymous.jpg' %} />
         <div class="text-center w-fit border-2 border-russian-violet px-6 py-1 bg-vivid-tangerine">
-          <p class="text-3xl text-transparent">Kosong</p>
+          <p class="text-3xl text-transparent">Naufal Hibatullah Muzakki</p>
         </div>
         <button class="bg-orange-red border-2 border-russian-violet text-white outline-text text-2xl rounded-lg px-8 py-2" onClick="showConfirmModalBem(0)">VOTE</button>
       </div>
