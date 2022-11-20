@@ -4,23 +4,64 @@
 
 {% block meta %}
 <title>Pemira FF 2022</title>
+<style>
+  .outline-text {
+    text-shadow:
+     -2px -2px 0 #150C34,  
+      1px -1px 0 #150C34,
+      -2px 2px 0 #150C34,
+      1px 1px 0 #150C34;
+  }
+</style>
+<script type="text/javascript">
+  function addBr(text) {
+    return text.replaceAll("\n", "<br>");
+  }
+
+  $(document).ready(
+    () => {
+      $(".text-view").each(
+        function() {
+          $(this).html(addBr($(this).html()));
+        }
+      );
+    }
+  )
+</script>
 {% endblock meta %}
 
 {% block content %}
-<div class="flex flex-col items-center h-full overflow-auto gap-2 p-8">
-  <p class="text-3xl">Profil Calon Anggota Independen BEM</p>
-  <div class="flex justify-center grow">
+<div class="flex flex-col text-center w-full overflow-auto items-center h-full break-words gap-2 p-8">
+  <p class="text-5xl mb-6 text-white outline-text font-simply-rounded">Profil Calon Ketua Umum BEM</p>
+  <div class="flex justify-center font-simply-rounded grow">
     {% for c in calon %}
-      <div class="flex flex-col items-center rounded-lg bg-blue-400 m-8 gap-4 p-8">
-        <img class="rounded-full overflow-clip w-40 h-40" src={{ c.photoPath }} />
-        <p>{{ c.name }}</p>
-        <p><span class="block font-semibold">Visi</span>{{ c.visi }}</p>
-        <p><span class="block font-semibold">Misi</span>{{ c.misi }}</p>
+      <div class="flex">
+        <div class="relative left-16">
+          <span class="bg-liberty ml-4 w-20 h-20 flex justify-center items-center text-5xl text-white outline-text border border-russian-violet rounded-full p-6">{{ c.cNo }}</span>
+        </div>
+        <div class="flex flex-col items-center rounded-lg gap-4">
+          <div class="rounded-full border-2 overflow-clip border-russian-violet w-40 h-40">
+            <img class="h-full object-fill" src={{ c.photoPath }} />
+          </div>
+          <div class="flex flex-col grow">
+            <div class="flex justify-center">
+              <div class="text-center w-fit border-2 border-russian-violet z-50 relative top-5 px-6 py-1 bg-vivid-tangerine">
+                <p class="text-2xl text-white outline-text">{{ c.name }}</p>
+              </div>
+            </div>
+            <div class="w-[30rem] h-[15rem] grow text-left font-lora border border-russian-violet bg-green-sheen text-lg rounded-lg px-4 pb-4 pt-0 overflow-y-auto break-words">
+              <div class="p-5 flex sticky top-0 bg-green-sheen"></div>
+              <p class="text-view"><span class="block font-bold">Visi</span>{{ c.visi }}</p>
+              <p class="text-view"><span class="block font-bold">Misi</span>{{ c.misi }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     {% endfor %}
   </div>
-  <div class="flex flex-row-reverse w-full items-center">
-    <a class="font-bold" href="/vote/anggota-bpm/">NEXT >>></a>
-  </div>
+</div>
+
+<div class="flex text-orange-red font-lora flex-row-reverse pr-2 fixed bottom-0 w-full items-center">
+  <a class="font-bold text-lg text-orange-red" href="/vote/anggota-bpm/">NEXT >>></a>
 </div>
 {% endblock content %}

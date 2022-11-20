@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block meta %}
+<title>Pemira FF 2022</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="{% static 'js/hasil.js' %}"></script>
+<script type="text/javascript">
+  $(document).ready(() => {
+    chart('bpm');
+  });
+</script>
+{% endblock meta %}
+
+{% block content %}
+<div class="flex flex-col justify-center items-center h-full p-20 gap-8">
+  <div class="flex flex-col justify-center items-center">
+    <p>Hasil Pemungutan Suara</p>
+    <p>Calon Anggota Independen BPM FF UI 2022</p>
+  </div>
+
+  <div class="grow flex flex-col justify-center w-[50%]">
+    <canvas id="chart"></canvas>
+  </div>
+
+  <div class="flex flex-col justify-center items-center bg-yellow-200 p-8">
+    <p>Hasil Pemungutan Suara</p>
+    <p>Calon Anggota Independen BPM FF UI 2022</p>
+  </div>
+</div>
+{% endblock content %}

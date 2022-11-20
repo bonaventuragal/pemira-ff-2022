@@ -3,16 +3,16 @@ const voteBpm = (id) => {
         idBpm: id
     },
     () => {
-        window.location.href = "/vote/anggota-bem/";
+        window.location.href = "/vote/ketua-bem/";
     });
 }
 
 const voteBem = (id) => {
-    $.post("/vote/anggota-bem/post/", {
+    $.post("/vote/ketua-bem/post/", {
         idBem: id
     },
     () => {
-        window.location.href = "/vote/anggota-bem/";
+        window.location.href = "/done/";
     });
 }
 

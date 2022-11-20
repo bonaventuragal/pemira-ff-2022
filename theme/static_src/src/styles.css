@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Simply Rounded;
+    font-weight: 400;
+    src: url(../../../static/font/simply-round/Simply_Rounded.ttf);
+  }
+
+  @font-face {
+    font-family: Lora;
+    font-weight: 400;
+    src: url(../../../static/font/lora/Lora-Regular.ttf);
+  } 
+}

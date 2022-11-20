@@ -47,7 +47,7 @@ def profil_anggota_bpm(req):
     return render(req, "profil-anggota-bpm.html", context)
 
 # @login_required(login_url = "/")
-def profil_anggota_bem(req):
+def profil_ketua_bem(req):
     calon_bem = Candidate.objects.filter(cType=CType.BEM)
     context = {
         "calon": calon_bem
@@ -63,7 +63,7 @@ def vote_anggota_bpm(req):
     return render(req, "vote-anggota-bpm.html", context)
 
 # @login_required(login_url = "/")
-def vote_anggota_bem(req):
+def vote_ketua_bem(req):
     calon_bem = Candidate.objects.filter(cType=CType.BEM)
     context = {
         "calon": calon_bem
@@ -79,7 +79,7 @@ def vote_anggota_bpm_post(req):
         if idBpm == 0:
             voteObj, created = VoteResult.objects.get_or_create(candidate__isnull=True, cType=CType.BPM)
         else:
-            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBpm, cType=CType.BPM))
+            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBpm, cType=CType.BPM), cType=CType.BPM)
 
         voteObj.count = voteObj.count + 1
         voteObj.save()
@@ -90,16 +90,17 @@ def vote_anggota_bpm_post(req):
 
 # @login_required(login_url = "/")
 @csrf_exempt
-def vote_anggota_bem_post(req):
+def vote_ketua_bem_post(req):
     if req.method == "POST":
         idBem = int(req.POST.get("idBem"))
 
         if idBem == 0:
             voteObj, created = VoteResult.objects.get_or_create(candidate__isnull=True, cType=CType.BEM)
         else:
-            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBem, cType=CType.BEM))
+            voteObj, created = VoteResult.objects.get_or_create(candidate=Candidate.objects.get(cNo=idBem, cType=CType.BEM), cType=CType.BEM)
 
         voteObj.count = voteObj.count + 1
+        print(voteObj.cType)
         voteObj.save()
 
         return HttpResponse()
@@ -118,8 +119,34 @@ def hasil_anggota_bpm(req):
     return render(req, "hasil-bpm.html")
 
 # @login_required(login_url = "/panitia")
+def hasil_anggota_bpm_get(req):
+    votes = VoteResult.objects.filter(cType=CType.BPM)
+
+    vote_cnt = {}
+    for vote in votes:
+        if not vote.candidate:
+            vote_cnt["Kosong"] = vote.count
+        else:
+            vote_cnt[vote.candidate.name] = vote.count
+
+    return JsonResponse(vote_cnt)
+
+# @login_required(login_url = "/panitia")
 def hasil_ketua_bem(req):
     return render(req, "hasil-bem.html")
+
+# @login_required(login_url = "/panitia")
+def hasil_ketua_bem_get(req):
+    votes = VoteResult.objects.filter(cType=CType.BEM)
+
+    vote_cnt = {}
+    for vote in votes:
+        if not vote.candidate:
+            vote_cnt["Kosong"] = vote.count
+        else:
+            vote_cnt[vote.candidate.name] = vote.count
+
+    return JsonResponse(vote_cnt)
 
 def panitia(req):
     if req.user.is_authenticated and isinstance(req.user, Panitia):
