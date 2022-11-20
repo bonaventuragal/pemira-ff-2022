@@ -817,12 +817,12 @@ select {
   bottom: 0px;
 }
 
-.left-6 {
-  left: 1.5rem;
-}
-
 .left-2 {
   left: 0.5rem;
+}
+
+.left-6 {
+  left: 1.5rem;
 }
 
 .z-50 {
@@ -981,10 +981,6 @@ select {
 
 .w-\[20rem\] {
   width: 20rem;
-}
-
-.w-\[23rem\] {
-  width: 23rem;
 }
 
 .w-\[22rem\] {
@@ -1192,6 +1188,16 @@ select {
      object-fit: contain;
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -1291,6 +1297,10 @@ select {
 
 .pt-10 {
   padding-top: 2.5rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {

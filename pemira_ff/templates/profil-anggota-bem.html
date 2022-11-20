@@ -15,7 +15,7 @@
 </style>
 <script type="text/javascript">
   function addBr(text) {
-    return text.replace("\n", "<br>");
+    return text.replaceAll("\n", "<br>");
   }
 
   $(document).ready(
@@ -40,14 +40,16 @@
           <span class="bg-liberty ml-4 w-20 h-20 flex justify-center items-center text-5xl text-white outline-text border border-russian-violet rounded-full p-6">{{ c.cNo }}</span>
         </div>
         <div class="flex flex-col items-center rounded-lg gap-4">
-          <img class="rounded-full border-2 border-russian-violet overflow-clip w-40 h-40" src={{ c.photoPath }} />
+          <div class="rounded-full border-2 overflow-clip border-russian-violet w-40 h-40">
+            <img class="h-full object-fill" src={{ c.photoPath }} />
+          </div>
           <div class="flex flex-col grow">
             <div class="flex justify-center">
               <div class="text-center w-fit border-2 border-russian-violet z-50 relative top-5 px-6 py-1 bg-vivid-tangerine">
                 <p class="text-2xl text-white outline-text">{{ c.name }}</p>
               </div>
             </div>
-            <div class="w-[30rem] h-[15rem] grow text-center font-lora border border-russian-violet bg-green-sheen text-lg rounded-lg px-4 pb-4 pt-0 overflow-y-auto break-words">
+            <div class="w-[30rem] h-[15rem] grow text-left font-lora border border-russian-violet bg-green-sheen text-lg rounded-lg px-4 pb-4 pt-0 overflow-y-auto break-words">
               <div class="p-5 flex sticky top-0 bg-green-sheen"></div>
               <p class="text-view"><span class="block font-bold">Visi</span>{{ c.visi }}</p>
               <p class="text-view"><span class="block font-bold">Misi</span>{{ c.misi }}</p>

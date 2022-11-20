@@ -15,7 +15,7 @@
 </style>
 <script type="text/javascript">
   function addBr(text) {
-    return text.replace("\n", "<br>");
+    return text.replaceAll("\n", "<br>");
   }
 
   $(document).ready(
@@ -47,7 +47,7 @@
                 <p class="text-2xl text-white outline-text">{{ c.name }}</p>
               </div>
             </div>
-            <div class="w-[30rem] h-[15rem] grow text-center font-lora border border-russian-violet bg-green-sheen text-lg rounded-lg px-4 pb-4 pt-0 overflow-y-auto break-words">
+            <div class="w-[30rem] h-[15rem] grow text-left font-lora border border-russian-violet bg-green-sheen text-lg rounded-lg px-4 pb-4 pt-0 overflow-y-auto break-words">
               <div class="p-5 flex sticky top-0 bg-green-sheen"></div>
               <p class="text-view"><span class="block font-bold">Visi</span>{{ c.visi }}</p>
               <p class="text-view"><span class="block font-bold">Misi</span>{{ c.misi }}</p>
