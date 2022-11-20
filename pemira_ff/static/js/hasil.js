@@ -22,9 +22,9 @@ const chart = (type) => {
                     label: '# of Votes',
                     data: cVotes,
                     borderWidth: 1,
-                    backgroundColor: '#FC7723',
-                    borderColor: '#000'
-                }]
+                    backgroundColor: '#F46521',
+                    borderColor: '#150C34'
+                }],
             },
             options: {
                 indexAxis: 'y',
@@ -39,7 +39,7 @@ const chart = (type) => {
                         },
                     }
                 }
-            }
+            },
         });
     });
 }

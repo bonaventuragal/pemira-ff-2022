@@ -817,16 +817,12 @@ select {
   bottom: 0px;
 }
 
-.left-2 {
-  left: 0.5rem;
+.left-4 {
+  left: 1rem;
 }
 
 .left-6 {
   left: 1.5rem;
-}
-
-.left-4 {
-  left: 1rem;
 }
 
 .z-50 {
@@ -983,36 +979,16 @@ select {
   width: 30rem;
 }
 
-.w-\[20rem\] {
-  width: 20rem;
-}
-
-.w-\[22rem\] {
-  width: 22rem;
-}
-
-.w-\[23rem\] {
-  width: 23rem;
-}
-
 .w-\[24rem\] {
   width: 24rem;
 }
 
-.w-\[2rem\] {
-  width: 2rem;
+.w-\[\] {
+  width: ;
 }
 
-.w-\[26rem\] {
-  width: 26rem;
-}
-
-.w-\[28rem\] {
-  width: 28rem;
-}
-
-.w-\[rem\] {
-  width: rem;
+.w-\[9\] {
+  width: 9;
 }
 
 .min-w-\[400px\] {
@@ -1047,6 +1023,10 @@ select {
   flex-direction: column;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
 }
@@ -1073,6 +1053,10 @@ select {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .gap-y-4 {
@@ -1308,6 +1292,61 @@ select {
   padding-right: 2.5rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.px-28 {
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.px-36 {
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+
+.px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.px-44 {
+  padding-left: 11rem;
+  padding-right: 11rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
@@ -1444,6 +1483,11 @@ select {
   color: transparent;
 }
 
+.text-mandarin {
+  --tw-text-opacity: 1;
+  color: rgb(243 125 76 / var(--tw-text-opacity));
+}
+
 .placeholder-white::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(255 255 255 / var(--tw-placeholder-opacity));
@@ -1458,6 +1502,10 @@ select {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline {
+  outline-style: solid;
 }
 
 .blur {
