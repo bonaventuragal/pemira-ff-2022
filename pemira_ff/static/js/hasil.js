@@ -11,8 +11,10 @@ const chart = (type) => {
     else type = "anggota-bpm";
 
     $.get(`/hasil/${type}/get/`, (data) => {
-        const cNames = Object.keys(data);
-        const cVotes = cNames.map((c) => data[c]);
+        var cArr = Object.entries(data);
+        cArr = cArr.sort((a, b) => b[1] - a[1]);
+        const cNames = cArr.map((c) => c[0]);
+        const cVotes = cArr.map((c) => c[1]);
 
         new Chart(ctx, {
             type: 'bar',
