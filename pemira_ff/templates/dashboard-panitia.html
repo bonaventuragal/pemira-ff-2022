@@ -4,27 +4,29 @@
 
 {% block meta %}
 <title>Pemira FF 2022</title>
-<script type="text/javascript" src="{% static 'js/tokendata.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  .outline-text {
+    text-shadow:
+     -2px -2px 0 #150C34,  
+      1px -1px 0 #150C34,
+      -1px 1px 0 #150C34,
+      1px 1px 0 #150C34;
+  }
+</style>
 {% endblock meta %}
 
 {% block content %}
-<div class="flex flex-col justify-start items-center h-full overflow-auto">
-  <div class="flex flex-col w-full p-16">
-    <p>Token</p>
-    <div class="overflow-auto w-full">
-      <table class="table-auto border-collapse border border-black w-full">
-        <thead class="border border-black">
-          <tr>
-            <th>NPM</th>
-            <th>Nama</th>
-            <th>Token</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="token-table" class="border border-black">
-        </tbody>
-      </table>
-    </div>
+<div class="flex flex-col font-simply-rounded justify-center items-center h-full p-16 gap-4">
+  <div class="flex items-center justify-end text-xl w-full">
+    <button class="py-2 px-6 bg-vivid-tangerine text-black hover:bg-pink-200 rounded-lg">Logout</button>
+  </div>
+  <p class="text-7xl outline-text text-white">Dashboard Panitia</p>
+  <p class="text-6xl outline-text text-white">Pemira FF UI 2022</p>
+  <div class="flex grow flex-col justify-center items-center gap-8">
+    <a class="rounded-lg border-2 border-russian-violet text-arylide-yellow outline-text px-44 py-6 text-3xl bg-orange-red" href="/hasil/ketua-bem">Hasil Vote Ketua BEM</a>
+    <a class="rounded-lg border-2 border-russian-violet text-arylide-yellow outline-text px-20 py-6 text-3xl bg-orange-red" href="/hasil/anggota-bpm">Hasil Vote Anggota Independen BPM</a>
+    <a class="rounded-lg border-2 border-russian-violet text-arylide-yellow outline-text px-60 py-6 text-3xl bg-orange-red" href="/token">Daftar Token</a>
   </div>
 </div>
 {% endblock content %}

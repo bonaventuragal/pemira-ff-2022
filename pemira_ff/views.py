@@ -118,7 +118,7 @@ def done(req):
     return render(req, "done.html")
 
 def hasil(req):
-    return render(req, "hasil.html")
+    return render(req, "dashboard-panitia.html")
 
 @login_required(login_url = "/panitia")
 def hasil_anggota_bpm(req):
@@ -156,7 +156,7 @@ def hasil_ketua_bem_get(req):
 
 def panitia(req):
     if req.user.is_authenticated and isinstance(req.user, Panitia):
-        return HttpResponseRedirect("/hasil")
+        return HttpResponseRedirect("/token")
 
     logout(req)
 
@@ -179,7 +179,7 @@ def panitia_login(req):
 
 @login_required(login_url = "/panitia")
 def panitia_dashboard(req):
-    return render(req, "dashboard-panitia.html")
+    return render(req, "token.html")
 
 def all_token(req):
     tokens = Token.objects.all()

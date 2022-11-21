@@ -23,19 +23,26 @@
 {% endblock meta %}
 
 {% block content %}
-<div class="flex flex-col font-simply-rounded justify-center items-center h-full p-20 gap-8">
-  <div class="flex flex-col text-white outline-text text-4xl justify-center items-center">
+<div class="flex flex-col font-simply-rounded justify-center items-center h-full p-16 gap-4">
+  <div class="flex items-center justify-end text-lg w-full gap-x-8">
+    <a class="underline hover:text-liberty" href="/panitia/dashboard">Dashboard Panitia</a>
+    <button class="py-2 px-4 bg-vivid-tangerine text-black hover:bg-pink-200 rounded-lg">Logout</button>
+  </div>
+
+  <div class="flex flex-col text-white outline-text text-3xl justify-center items-center">
     <p>Hasil Pemungutan Suara</p>
-    <p>Calon Anggota Independen BPM FF UI 2022</p>
+    <p>Calon Anggota Independen BEM FF UI 2022</p>
   </div>
 
   <div class="grow flex flex-col font-simply-rounded justify-center w-[50%]">
     <canvas id="chart"></canvas>
   </div>
 
-  <div class="flex flex-col justify-center border-2 border-russian-violet text-xl text-white outline-text items-center bg-arylide-yellow p-8">
-    <p>Hasil Pemungutan Suara</p>
-    <p>Calon Anggota Independen BPM FF UI 2022</p>
-  </div>
+  <a href="/hasil/anggota-bpm" class="flex flex-col justify-center border-2 border-russian-violet text-xl items-center bg-arylide-yellow p-6">
+    <button class="flex flex-col  text-white outline-text text-center items-center grow justify-center">
+      <p>Hasil Pemungutan Suara</p>
+      <p>Calon Anggota Independen BPM FF UI 2022</p>
+    </button>
+  </a>
 </div>
 {% endblock content %}

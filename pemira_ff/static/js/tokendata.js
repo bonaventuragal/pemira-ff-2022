@@ -24,14 +24,14 @@ const determineStatus = (status) => {
 
 const makeTr = (data) => {
     return `
-    <tr>
-        <td>${data.npm}</td>
-        <td>${data.name}</td>
-        <td class="text-center">${data.token}</td>
-        <td>
+    <tr class="text-center">
+        <td class="border-r-2 border-l-2 border-b-2 border-russian-violet">${data.npm}</td>
+        <td class="border-r-2 border-l-2 border-b-2 border-russian-violet">${data.name}</td>
+        <td class="border-r-2 border-l-2 border-b-2 border-russian-violet">${data.token}</td>
+        <td class="border-r-2 border-b-2 p-2 border-russian-violet ">
             <div class="flex justify-center gap-4">
                 <p id="status-${data.token}" class="py-1 px-2 w-16 text-center ${determineColor(data.used)} rounded-3xl">${determineStatus(data.used)}</p>
-                <button class="py-1 px-2 bg-blue-400 rounded-lg" onClick="toggleStatus('${data.token}')">Change</button>
+                <button class="py-1 px-2 bg-liberty text-white hover:bg-blue-400 rounded-lg" onClick="toggleStatus('${data.token}')">Change</button>
             </div>
         </td>
     </tr>`;
