@@ -14,6 +14,15 @@
       1px 1px 0 #150C34;
   }
 </style>
+<script type="text/javascript">
+  $(document).ready(() => {
+    $("#logout-btn").click(() => {
+      $.post("/panitia/logout/", {}, (data, status) => {
+        window.location.href = "/panitia/";
+      });
+    });
+  });
+</script>
 {% endblock meta %}
 
 {% block content %}
@@ -21,7 +30,7 @@
   <div class="flex flex-col text-center w-full gap-8 p-12">
     <div class="flex items-center justify-end text-xl w-full gap-8">
       <a class="underline hover:text-liberty" href="/panitia/dashboard">Dashboard Panitia</a>
-      <button class="py-2 px-4 bg-vivid-tangerine text-black hover:bg-pink-200 rounded-lg">Logout</button>
+      <button id="logout-btn" class="py-2 px-4 bg-vivid-tangerine text-black hover:bg-pink-200 rounded-lg">Logout</button>
     </div>
     <p class="text-5xl text-white outline-text">Daftar Token</p>
     <div class="overflow-auto w-full">
