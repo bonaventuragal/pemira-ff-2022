@@ -4,6 +4,7 @@
 
 {% block meta %}
 <title>Pemira FF 2022</title>
+<script type="text/javascript" src="{% static 'js/panitia.js' %}"></script>
 <style>
   .outline-text {
     text-shadow:
@@ -13,15 +14,6 @@
       1px 1px 0 #150C34;
   }
 </style>
-<script type="text/javascript">
-  $(document).ready(() => {
-    $("#logout-btn").click(() => {
-      $.post("/panitia/logout/", {}, (data, status) => {
-        window.location.href = "/panitia/";
-      });
-    });
-  });
-</script>
 {% endblock meta %}
 
 {% block content %}

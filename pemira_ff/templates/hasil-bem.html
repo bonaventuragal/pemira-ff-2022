@@ -6,6 +6,7 @@
 <title>Pemira FF 2022</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript" src="{% static 'js/hasil.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/panitia.js' %}"></script>
 <script type="text/javascript">
   $(document).ready(() => {
     chart('bem');
@@ -26,7 +27,7 @@
 <div class="flex flex-col font-simply-rounded justify-center items-center h-full p-16 gap-4">
   <div class="flex items-center justify-end text-lg w-full gap-x-8">
     <a class="underline hover:text-liberty" href="/panitia/dashboard">Dashboard Panitia</a>
-    <button class="py-2 px-4 bg-vivid-tangerine text-black hover:bg-pink-200 rounded-lg">Logout</button>
+    <button id="logout-btn" class="py-2 px-4 bg-vivid-tangerine text-black hover:bg-pink-200 rounded-lg">Logout</button>
   </div>
 
   <div class="flex flex-col text-white outline-text text-3xl justify-center items-center">
