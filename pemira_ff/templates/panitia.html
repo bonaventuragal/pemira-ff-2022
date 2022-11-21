@@ -7,6 +7,7 @@
 <script type="text/javascript">
   $(document).ready(() => {
     $("#panitia-login").click(() => {
+      $("#invalid-message").addClass("hidden");
       $.post("/panitia/login/", {
         username: $("#username-input").val(),
         password: $("#password-input").val(),
@@ -14,20 +15,35 @@
       },
       () => {
         window.location.href = "/panitia/dashboard/";
-      })
+      }).fail(() => {
+        $("#invalid-message").removeClass("hidden");
+      }).always(() => {
+          $("#username-input").val("");
+          $("#password-input").val("");
+      });
     })
   })
 </script>
+<style>
+  .outline-text {
+    text-shadow:
+     -2px -2px 0 #150C34,  
+      1px -1px 0 #150C34,
+      -1px 1px 0 #150C34,
+      1px 1px 0 #150C34;
+  }
+</style>
 {% endblock meta %}
 
 {% block content %}
-<div class="flex flex-col justify-center items-center h-full">
-  <div class="flex flex-col gap-4">
-    <p>Login Panitia</p>
+<div class="font-simply-rounded flex flex-col justify-center items-center h-full">
+  <div class="flex text-center flex-col w-[30%] gap-4">
+    <p class="text-6xl text-white outline-text mb-4">Login Panitia</p>
     {% csrf_token %}
-    <input type="text" id="username-input" placeholder="Username" />
-    <input type="password" id="password-input" placeholder="Password" />
-    <button id="panitia-login" class="p-4 bg-slate-400 rounded-lg">Login</button>
+    <input class="rounded-lg text-left text-2xl border-2 border-russian-violet mt-6 p-4 bg-arylide-yellow placeholder-slate-700" type="text" id="username-input" placeholder="Username" />
+    <input class="rounded-lg text-left text-2xl border-2 border-russian-violet mt-6 p-4 bg-arylide-yellow placeholder-slate-700" type="password" id="password-input" placeholder="Password" />
+    <button id="panitia-login" class="p-4 text-xl mt-12 bg-orange-red text-white rounded-lg">Login</button>
+    <p id="invalid-message" class="hidden rounded-lg bg-vivid-tangerine border-2 border-red-500 px-2 py-1">Invalid Login!</p>
   </div>
 </div>
 {% endblock content %}
