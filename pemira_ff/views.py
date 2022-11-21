@@ -117,9 +117,6 @@ def vote_ketua_bem_post(req):
 def done(req):
     return render(req, "done.html")
 
-def hasil(req):
-    return render(req, "dashboard-panitia.html")
-
 @login_required(login_url = "/panitia")
 def hasil_anggota_bpm(req):
     return render(req, "hasil-bpm.html")
@@ -156,7 +153,7 @@ def hasil_ketua_bem_get(req):
 
 def panitia(req):
     if req.user.is_authenticated and isinstance(req.user, Panitia):
-        return HttpResponseRedirect("/token")
+        return HttpResponseRedirect("/token/")
 
     logout(req)
 
@@ -177,8 +174,19 @@ def panitia_login(req):
 
     return HttpResponseBadRequest()
 
-@login_required(login_url = "/panitia")
+@login_required(login_url = "/panitia/")
 def panitia_dashboard(req):
+    return render(req, "dashboard-panitia.html")
+
+@login_required
+@csrf_exempt
+def panitia_logout(req):
+    logout(req)
+
+    return HttpResponse()
+
+@login_required(login_url = "/panitia/")
+def token(req):
     return render(req, "token.html")
 
 def all_token(req):
