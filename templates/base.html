@@ -15,6 +15,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     {% block meta %}
     {% endblock meta %}
+
+    <script>
+      $(document).ready(function () {
+        function disableBack() {window.history.forward()}
+    
+        window.onload = disableBack();
+        window.onpageshow = function (evt) {if (evt.persisted) disableBack()}
+    });
+    </script>
   </head>
 
   <body class="h-screen bg-hero bg-cover bg-no-repeat ">
