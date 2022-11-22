@@ -18,6 +18,7 @@ const hideFailModal = () => {
 const login = () => {
     $.post("/login/", {
         token: $("#token-input").val(),
+        npm: $("#login-btn").attr("npm"),
         csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()
     },
     (data, status) => {

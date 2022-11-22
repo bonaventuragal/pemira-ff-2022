@@ -3,6 +3,8 @@ from .views import *
 
 urlpatterns = [
     path('', home, name='home'),
+    path('login/npm/', login_npm, name='login_npm'),
+    path('login/<str:npm>/', login_token, name='login_token'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout_user'),
     path('profil/anggota-bpm/', profil_anggota_bpm, name='profil_anggota_bpm'),

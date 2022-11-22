@@ -12,13 +12,21 @@ def home(req):
     context = {
         "today": datetime.date.today().strftime("%d %B %Y")
     }
+    return render(req, "npm.html", context)
+
+def login_token(req, npm):
+    context = {
+        "today": datetime.date.today().strftime("%d %B %Y"),
+        "npm": npm
+    }
     return render(req, "home.html", context)
 
 def login_user(req):
     if req.method == "POST":
         token = req.POST.get("token")
+        npm = req.POST.get("npm")
         try:
-            tokenObj = Token.objects.get(tokenField=token)
+            tokenObj = Token.objects.get(tokenField=token, npm=npm)
             if tokenObj.used:
                 raise Exception()
         except:
@@ -31,6 +39,22 @@ def login_user(req):
         }
 
         return JsonResponse(response)
+
+    return HttpResponseBadRequest()
+
+def login_npm(req):
+    if req.method == "POST":
+        npm = req.POST.get("npm")
+        print(npm)
+        try:
+            tokenObj = Token.objects.get(npm=npm)
+        except:
+            return HttpResponseBadRequest()
+
+        print(npm)
+        print(tokenObj)
+
+        return HttpResponse()
 
     return HttpResponseBadRequest()
 

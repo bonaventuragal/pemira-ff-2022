@@ -4,7 +4,7 @@
 
 {% block meta %}
 <title>Pemira FF 2022</title>
-<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/npm.js' %}"></script>
 <style>
   .outline-text {
     text-shadow:
@@ -23,8 +23,8 @@
     {% csrf_token %}
     <p class="font-semibold outline-text text-white text-7xl">Selamat datang</p>
     <p class="font-semibold outline-text text-4xl text-liberty">{{ today }}</p>
-    <input class="rounded-lg text-3xl border-2 border-russian-violet mt-6 w-[70%] p-4 bg-green-sheen placeholder-white text-center" type="text" placeholder="Token" id="token-input" />
-    <button class="rounded-lg mt-4 border-2 border-russian-violet bg-arylide-yellow px-6 py-2 outline-text text-white text-2xl" id="login-btn" npm="{{ npm }}">LOGIN</button>
+    <input class="rounded-lg text-3xl border-2 border-russian-violet mt-6 w-[70%] p-4 bg-green-sheen placeholder-white text-center" type="text" placeholder="NPM" id="npm-input" />
+    <button class="rounded-lg mt-4 border-2 border-russian-violet bg-arylide-yellow px-6 py-2 outline-text text-white text-2xl" id="login-btn">LOGIN</button>
   </div>
 
   <div class="px-12"></div>
@@ -36,19 +36,9 @@
   </div> 
 </div>
 
-<div id="success-modal" class="hidden font-simply-rounded w-screen h-screen bg-slate-800/60 absolute top-0 flex flex-col justify-center items-center">
-  <div class="flex flex-col justify-center items-center bg-orange-red/70 p-20 gap-4">
-    <p class="text-white outline-text text-6xl">Anda login sebagai</p>
-    <p id="login-nama" class="text-white outline-text text-5xl pb-14"></p>
-    <button id="next-btn" class="flex flex-col text-2xl text-white font-lora rounded-lg bg-orange-red border-2 border-black">
-      <a href="/profil/anggota-bpm" class="px-14 py-4">>> NEXT >></a>
-    </button>
-  </div>
-</div>
-
 <div id="fail-modal" class="hidden font-simply-rounded w-screen h-screen bg-slate-800/60 absolute top-0 flex flex-col justify-center items-center">
   <div class="flex flex-col justify-center items-center bg-orange-red/70 p-20 gap-4">
-    <p class="text-white outline-text text-6xl">Invalid token</p>
+    <p class="text-white outline-text text-6xl">NPM not found</p>
     <button id="close-fail-modal" class="text-2xl text-white font-lora rounded-lg bg-orange-red border-2 border-black px-14 py-4">CLOSE</button>
   </div>
 </div>
